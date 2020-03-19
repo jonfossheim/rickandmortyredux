@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from "react-router-dom"
 import { Flex } from "../components/grids/Flex";
 import { Spinner } from "../components/Spinner";
@@ -12,7 +12,7 @@ const CharacterSpecific = () => {
 
     useEffect(() => {
         dispatch(setSpecificCharacterResult(id))
-    }, [])
+    }, [dispatch, id])
 
     const character = useSelector(state => state.CharactersReducer.specificCharacterResult);
 
@@ -39,9 +39,12 @@ const CharacterSpecific = () => {
                 <div>
                     <h1>{character.name}</h1>
                     <img src={character.image} alt={character.name} />
+                    <p>Status: {character.status}</p>
+                    <p>Gender: {character.gender}</p>
                     <p>Origin: {character.origin.name}</p>
                     <p>Location: {character.location.name}</p>
                     <p>Created: {formattedDate}</p>
+                    <p>Appears in {character.episode.length} episode(s)</p>
                 </div>}
         </>
     )

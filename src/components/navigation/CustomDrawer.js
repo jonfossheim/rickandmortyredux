@@ -18,13 +18,8 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import Button from "@material-ui/core/Button";
 import MailIcon from '@material-ui/icons/Mail';
 import InfoIcon from '@material-ui/icons/Info';
-
-
-
-import { Flex } from '../grids/Flex'
 
 const drawerWidth = 240;
 
@@ -93,9 +88,7 @@ const CustomDrawer = (props) => {
 	const classes = useStyles();
 	const theme = useTheme();
 	const [open, setOpen] = React.useState(false);
-
-	const User = localStorage.getItem('username')
-
+	
 	const handleDrawerOpen = () => {
 		setOpen(true);
 	};

@@ -9,17 +9,17 @@ import StyledLink from "./navigation/StyledLink";
 
 const useStyles = makeStyles({
     root: {
-        maxWidth: 345,
+        width: 345,
         margin: '1rem',
     },
     media: {
-        height: 140,
+        height: 275,
     },
 });
 
 const CharacterCard = (props) => {
     const classes = useStyles();
-    const {name, image, species, status, location, id} = props
+    const {name, image, id} = props
     return (
         <StyledLink to={`/character/${id}`}>
             <Card className={classes.root}>
@@ -32,15 +32,6 @@ const CharacterCard = (props) => {
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="h2">
                             {name}
-                        </Typography>
-                        <Typography variant="body2" color="textSecondary" component="p">
-                            Species: {species}
-                        </Typography>
-                        <Typography variant="body2" color="textSecondary" component="p">
-                            Dead or Alive?: {status}
-                        </Typography>
-                        <Typography variant="body2" color="textSecondary" component="p">
-                            Location: {location.name}
                         </Typography>
                     </CardContent>
                 </CardActionArea>

@@ -21,7 +21,7 @@ export const setSpecificCharacterResult = (pageId) => {
     return dispatch => {
         axios.get(RM_API + pageId)
         .then(result => {
-            console.log('frm the action', result, 'id is ', pageId );
+            console.log(result.data);
             dispatch({
                 type: SET_SPECIFIC_CHARACTER_RESULT,
                 specificCharacterResult: result.data

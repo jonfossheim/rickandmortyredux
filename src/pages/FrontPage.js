@@ -1,12 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
-
-import { bindActionCreators } from "redux";
-
 import { setCharacterResults } from "../store/actions/characterAction";
-
-import axios from 'axios'
-import {RM_API} from "../utils/utils";
 
 import {Flex} from "../components/grids/Flex";
 import CharacterCard from "../components/CharacterCard";
@@ -21,7 +15,7 @@ const FrontPage = () => {
 
     useEffect(() => {
         dispatch(setCharacterResults())
-    }, [])
+    }, [dispatch])
 
     const characters = useSelector(state => state.CharactersReducer.characterResults);
 
@@ -71,7 +65,7 @@ const FrontPage = () => {
                     (isFiltered) ?
 
                         <Flex justifyContent={'space-around'} flexWrap={'wrap'} flexDirection={'row'}>
-                            { characters !== undefined > 0 ?  filteredCharacters.map((character) => (
+                            { characters !== undefined ?  filteredCharacters.map((character) => (
                                 <CharacterCard
                                     key={character.id}
                                     id={character.id}
@@ -84,7 +78,7 @@ const FrontPage = () => {
                         </Flex>
                         :
                         <Flex flexDirection={'row'} flexWrap={'wrap'} justifyContent={'space-around'}>
-                            {characters !== undefined > 0 ? characters.map((character) => (
+                            {characters !== undefined ? characters.map((character) => (
                                 <CharacterCard
                                     key={character.id}
                                     id={character.id}
