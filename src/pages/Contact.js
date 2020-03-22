@@ -8,6 +8,7 @@ const Contact = () => {
     const [lastNameError, setLastNameError] = useState(true)
     const [emailError, setEmailError] = useState(true)
     const [messageError, setMessageError] = useState(true)
+    const [telError, setTelError] = useState(true)
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -18,6 +19,7 @@ const Contact = () => {
         let name = input.target.name
         let value = input.target.value
         let emailPattern = /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/
+        let phonePattern = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s./0-9]*$/
 
         switch (name) {
             case 'firstName':
@@ -31,6 +33,9 @@ const Contact = () => {
                 break
             case 'message':
                 (value !== '') ? setMessageError(false) : setMessageError(true)
+                break
+            case 'tel':
+                (phonePattern.test(value)) ? setTelError(false) : setTelError(true)
                 break
             default:
                 break
@@ -73,6 +78,18 @@ const Contact = () => {
                     onChange={handleChange}
                     error={emailError ? true : false}
                     helperText={'Must be a valid email'}
+                    style={{width: '100%', margin: '10px'}}
+                />
+                <TextField
+                    id="outlined-basic"
+                    type={'tel'}
+                    name={'tel'}
+                    pattern='[0-9]{3}-[0-9]{2}-[0-9]{3}'
+                    label="Telephone number.."
+                    variant="outlined"
+                    onChange={handleChange}
+                    error={telError ? true : false}
+                    helperText={'Must be a number'}
                     style={{width: '100%', margin: '10px'}}
                 />
                 <TextField
