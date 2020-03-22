@@ -13,8 +13,10 @@ import './index.css';
 import App from './App';
 import FrontPage from "./pages/FrontPage";
 import CharacterSpecific from "./pages/CharacterSpecific";
-
+import About from "./pages/About";
+import Contact from './pages/Contact'
 import * as serviceWorker from './serviceWorker';
+
 
 export const store = createStore(
     initialReducer,
@@ -30,7 +32,9 @@ ReactDOM.render(
             <App>
                 <Switch>
                     <Route path='/' exact component={FrontPage} />
-                    <Route path='/character/:id' exact component={CharacterSpecific} />
+                    <Route path='/character/:id' component={CharacterSpecific} />
+                    <Route path='/about' component={About} />
+                    <Route path='/contact' component={Contact} />
                 </Switch>
             </App>
         </Router>

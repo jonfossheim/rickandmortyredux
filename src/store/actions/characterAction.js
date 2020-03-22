@@ -5,7 +5,6 @@ import {RM_API} from "../../utils/utils";
 import axios from 'axios'
 
 export const setCharacterResults = () => {
-
     return dispatch => {
         axios.get(RM_API)
             .then(result => {
