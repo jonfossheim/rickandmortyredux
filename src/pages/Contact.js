@@ -107,6 +107,7 @@ const Contact = () => {
                 <Flex justifyContent={'flex-end'} style={{width: '100%'}}>
                     <Button
                         type={'submit'}
+                        variant="contained"
                         disabled={firstNameError || lastNameError || emailError || messageError}
                         color="primary"
                     >
