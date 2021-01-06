@@ -44,7 +44,7 @@ const CharacterSpecific = () => {
                     <p>Origin: {character.origin.name}</p>
                     <p>Location: {character.location.name}</p>
                     <p>Created: {formattedDate}</p>
-                    <p>Appears in {character.episode.length} episode(s)</p>
+                    <p>Appears in {character.episode.length} episod(s)</p>
                 </div>}
         </>
     )
